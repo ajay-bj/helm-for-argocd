@@ -1,0 +1,20 @@
+
+replicaCount: 2
+
+image:
+  repository: 905418153772.dkr.ecr.us-east-1.amazonaws.com/devsecops/petclinic
+  tag: "40"
+  pullPolicy: IfNotPresent
+
+#imagePullSecrets: ecr-secret
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  scheme: internet-facing
+  targetType: ip
+  host:  pet.teachingaws.com 
